@@ -2,23 +2,21 @@ const { build } = require("esbuild")
 const { resolve } = require("path")
 const { existsSync } = require("fs")
 const { copy } = require("esbuild-plugin-copy")
+const { context } = require("esbuild")
 const isProd = process.argv.indexOf('--mode=production') >= 0;
 
 const dependencies = ['vscode-html-to-docx', 'highlight.js', 'pdf-lib', 'cheerio', 'katex', 'mustache', 'puppeteer-core']
 
 function main() {
-    build({
+    const buildOptions = {
         entryPoints: ['./src/extension.ts'],
         bundle: true,
         outfile: "out/extension.js",
         external: ['vscode', ...dependencies],
         format: 'cjs',
         platform: 'node',
-        // logLevel: 'error',
         metafile: true,
-        // sourceRoot: __dirname+"/src",
         minify: isProd,
-        watch: !isProd,
         sourcemap: !isProd,
         logOverride: {
             'duplicate-object-key': "silent",
@@ -54,7 +52,17 @@ function main() {
                 }
             },
         ],
-    })
+    }
+
+    // Use context for watch mode, build for one-time build
+    if (!isProd) {
+        context({
+            ...buildOptions,
+            watch: true,
+        })
+    } else {
+        build(buildOptions)
+    }
 }
 
 function createLib() {
