@@ -1,8 +1,8 @@
 //* global window */
+import { cssPrefix } from '../config';
 import { h } from './element';
 import Suggest from './suggest';
 import Datepicker from './datepicker';
-import { cssPrefix } from '../config';
 // import { mouseMoveUp } from '../event';
 
 function resetTextareaSize() {

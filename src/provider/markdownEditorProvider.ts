@@ -1,14 +1,14 @@
-import { adjustImgPath, getWorkspacePath, writeFile } from '@/common/fileUtil';
 import { readFileSync, writeFileSync } from 'fs';
 import { basename, isAbsolute, parse, resolve } from 'path';
+import { platform } from 'os';
 import * as vscode from 'vscode';
 import { Handler } from '../common/handler';
 import { Util } from '../common/util';
 import { Holder } from '../service/markdown/holder';
 import { MarkdownService } from '../service/markdownService';
-import { Global } from '@/common/global';
-import { platform } from 'os';
 import { preprocessQmd, isQmdFile } from '../service/qmdPreprocessor';
+import { Global } from '@/common/global';
+import { adjustImgPath, getWorkspacePath } from '@/common/fileUtil';
 
 /**
  * support view and edit office files.

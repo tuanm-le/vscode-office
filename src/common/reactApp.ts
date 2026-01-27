@@ -1,5 +1,5 @@
-import axios from 'axios';
 import * as fs from 'fs';
+import axios from 'axios';
 import * as vscode from 'vscode';
 
 interface ViewOption {

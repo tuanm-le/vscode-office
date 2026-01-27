@@ -1,7 +1,7 @@
 /* global document */
+import { cssPrefix } from '../config';
 import { h } from './element';
 import { bind } from './event';
-import { cssPrefix } from '../config';
 
 export default function tooltip(html, target) {
   if (target.classList.contains('active')) {

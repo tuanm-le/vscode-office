@@ -1,12 +1,11 @@
+import { cssPrefix } from '../config';
+import { tf } from '../locale/locale';
 import { h } from './element';
 import { bindClickoutside, unbindClickoutside } from './event';
-import { cssPrefix } from '../config';
 import Icon from './icon';
 import FormInput from './form_input';
-import Dropdown from './dropdown';
 // Record: temp not used
 // import { xtoast } from './message';
-import { tf } from '../locale/locale';
 
 const menuItems = [
   { key: 'delete', title: tf('contextmenu.deleteSheet') },

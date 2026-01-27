@@ -1,5 +1,5 @@
-import { h } from './element';
 import { cssPrefix } from '../config';
+import { h } from './element';
 
 const themeColorPlaceHolders = ['#ffffff', '#000100', '#e7e5e6', '#445569', '#5b9cd6', '#ed7d31', '#a5a5a5', '#ffc001', '#4371c6', '#71ae47'];
 

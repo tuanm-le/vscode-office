@@ -1,7 +1,7 @@
-import * as vscode from 'vscode';
-import { Handler } from "@/common/handler";
-import { Uri, workspace } from 'vscode';
 import { extname } from 'path';
+import * as vscode from 'vscode';
+import { Uri, workspace } from 'vscode';
+import { Handler } from "@/common/handler";
 
 const fileSaveTimes: Record<string, number> = {};
 

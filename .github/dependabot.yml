@@ -1,0 +1,93 @@
+version: 2
+updates:
+  # Enable version updates for npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "cweijan"
+    assignees:
+      - "cweijan"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "build(deps)"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "npm"
+    ignore:
+      # Ignore major version updates for these packages (manual review required)
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "antd"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "vite"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "esbuild"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "puppeteer-core"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@typescript-eslint/eslint-plugin"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@typescript-eslint/parser"
+        update-types: ["version-update:semver-major"]
+    groups:
+      # Group Ant Design related packages
+      ant-design-dependencies:
+        patterns:
+          - "antd"
+          - "@ant-design/*"
+        exclude-patterns:
+          - "@ant-design/icons"
+
+      # Group React-related packages
+      react-dependencies:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react*"
+
+      # Group build tools
+      build-tools:
+        patterns:
+          - "vite"
+          - "esbuild*"
+          - "@vitejs/*"
+
+      # Group TypeScript/ESLint
+      typescript-eslint:
+        patterns:
+          - "typescript*"
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "eslint-plugin-*"
+
+      # Group markdown plugins
+      markdown-plugins:
+        patterns:
+          - "markdown-it*"
+
+      # Group testing dependencies (if added later)
+      test-dependencies:
+        patterns:
+          - "jest"
+          - "@testing-library/*"
+          - "vitest"
+          - "cypress"
+
+  # Separate configuration for GitHub Actions (if added later)
+  # - package-ecosystem: "github-actions"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   labels:
+  #     - "github-actions"
+  #     - "dependencies"

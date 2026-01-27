@@ -1,5 +1,8 @@
 /* global window */
 
+import { h } from '../element';
+import { cssPrefix } from '../../config';
+import { bind } from '../event';
 import Align from './align';
 import Valign from './valign';
 import Autofilter from './autofilter';
@@ -25,9 +28,6 @@ import Textwrap from './textwrap';
 import More from './more';
 import Item from './item';
 
-import { h } from '../element';
-import { cssPrefix } from '../../config';
-import { bind } from '../event';
 
 function buildDivider() {
   return h('div', `${cssPrefix}-toolbar-divider`);

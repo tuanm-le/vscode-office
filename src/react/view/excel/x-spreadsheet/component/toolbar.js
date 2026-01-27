@@ -1,4 +1,6 @@
 /* global window */
+import { cssPrefix } from '../config';
+import { t } from '../locale/locale';
 import { h } from './element';
 import { bind } from './event';
 import tooltip from './tooltip';
@@ -11,8 +13,6 @@ import DropdownAlign from './dropdown_align';
 import DropdownBorder from './dropdown_border';
 import Dropdown from './dropdown';
 import Icon from './icon';
-import { cssPrefix } from '../config';
-import { t } from '../locale/locale';
 
 function buildIcon(name) {
   return new Icon(name);

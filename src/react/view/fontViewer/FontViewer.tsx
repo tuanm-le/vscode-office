@@ -45,7 +45,7 @@ export default function FontViewer() {
             if (!ele) continue;
             renderGlyphItem(fontInfoRef.current, document.getElementById(`g${key}`) as HTMLCanvasElement, key);
         }
-    }, [icons])
+    }, [font])
 
     return (
         <Flex>

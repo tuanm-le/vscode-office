@@ -1,7 +1,7 @@
-import { Handler } from '@/common/handler';
 import { readdirSync } from 'fs';
 import { basename, resolve } from 'path';
 import * as vscode from 'vscode';
+import { Handler } from '@/common/handler';
 
 function loadImages(uri: vscode.Uri, webview: vscode.Webview) {
 

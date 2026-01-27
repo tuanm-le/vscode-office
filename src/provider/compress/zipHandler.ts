@@ -1,14 +1,12 @@
-import { Output } from "@/common/Output";
-import { FileUtil } from "@/common/fileUtil";
-import { Handler } from "@/common/handler";
-import prettyBytes from "@/service/zip/pretty-bytes";
-import { parseZipAsTree } from "@/service/zip/zipUtils";
-import { exec } from "child_process";
-import { existsSync, mkdirSync, rm, writeFileSync } from "fs";
-import { platform } from "os";
+import { mkdirSync, writeFileSync } from "fs";
 import { basename, join, parse, resolve } from "path";
 import { Uri, commands, window, workspace } from "vscode";
 import { handlerCommonDecompress } from "./decompressHandler";
+import { parseZipAsTree } from "@/service/zip/zipUtils";
+import prettyBytes from "@/service/zip/pretty-bytes";
+import { Handler } from "@/common/handler";
+import { FileUtil } from "@/common/fileUtil";
+import { Output } from "@/common/Output";
 
 export async function handleZip(uri: Uri, handler: Handler) {
     const decompressPath = handlerCommonDecompress(uri, handler)

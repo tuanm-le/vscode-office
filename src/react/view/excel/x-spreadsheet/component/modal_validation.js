@@ -1,11 +1,11 @@
+import { t } from '../locale/locale';
+import { cssPrefix } from '../config';
 import Modal from './modal';
 import FormInput from './form_input';
 import FormSelect from './form_select';
 import FormField from './form_field';
 import Button from './button';
-import { t } from '../locale/locale';
 import { h } from './element';
-import { cssPrefix } from '../config';
 
 const fieldLabelWidth = 100;
 

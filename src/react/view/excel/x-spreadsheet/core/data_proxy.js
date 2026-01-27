@@ -1,5 +1,6 @@
 /* global document */
 
+import { t } from '../locale/locale';
 import Selector from './selector';
 import Scroll from './scroll';
 import History from './history';
@@ -12,7 +13,6 @@ import { Cols } from './col';
 import { Validations } from './validation';
 import { CellRange } from './cell_range';
 import { expr2xy, xy2expr } from './alphabet';
-import { t } from '../locale/locale';
 
 // private methods
 /*

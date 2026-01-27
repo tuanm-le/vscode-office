@@ -1,4 +1,6 @@
 /* global window */
+import { cssPrefix } from '../config';
+import { formulas } from '../core/formula';
 import { h } from './element';
 import {
   bind,
@@ -17,8 +19,6 @@ import Toolbar from './toolbar/index';
 import ModalValidation from './modal_validation';
 import SortFilter from './sort_filter';
 import { xtoast } from './message';
-import { cssPrefix } from '../config';
-import { formulas } from '../core/formula';
 
 /**
  * @desc throttle fn

@@ -1,7 +1,7 @@
-import AdmZip from "@/bundle/adm-zip";
-import format from 'date-format';
 import { basename } from "path";
+import format from 'date-format';
 import prettyBytes from "./pretty-bytes";
+import AdmZip from "@/bundle/adm-zip";
 type ZipEntry = AdmZip.IZipEntry;
 
 interface ZipParseResult {

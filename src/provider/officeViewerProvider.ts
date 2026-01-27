@@ -1,4 +1,3 @@
-import { ReactApp } from '@/common/reactApp';
 import { readFileSync } from 'fs';
 import { extname } from 'path';
 import * as vscode from 'vscode';
@@ -8,8 +7,8 @@ import { handleClass } from './handlers/classHandler';
 import { handleImage, isImage } from './handlers/imageHanlder';
 import { handleZip } from './compress/zipHandler';
 import { handleRar } from './compress/rarHandler';
-import { workspace } from 'vscode';
 import { handleCommonEvent } from './compress/commonHandler';
+import { ReactApp } from '@/common/reactApp';
 
 /**
  * support view office files

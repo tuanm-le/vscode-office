@@ -1,7 +1,7 @@
-import { Output } from "@/common/Output";
 import { existsSync, rm } from "fs";
 import { homedir } from "os";
 import { join } from "path";
+import { Output } from "@/common/Output";
 
 /*
 旧版本的VS Code每次打开webview都会对资源文件进行缓存, 导致占用大量空间, 新版本不会再重复缓存, 因此不再需要自动清理了.

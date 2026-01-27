@@ -77,9 +77,26 @@ The extension includes enhanced support for Quarto Markdown files (.qmd). See `Q
 
 ## Conventions
 
-- **Commit messages**: English, under 70 characters
+- **Commit messages**: Always use Git Conventional Commits format (https://www.conventionalcommits.org/)
+  - Format: `<type>(<scope>): <description>`
+  - Types: feat, fix, docs, style, refactor, perf, test, chore, revert, build, ci
+  - Examples:
+    - `feat: add support for QMD files`
+    - `fix(markdown): resolve mermaid rendering issue`
+    - `chore: upgrade dependencies to latest versions`
+  - Keep descriptions under 70 characters (including type/scope)
+  - Use English for all commit messages
+  - Add body lines for additional context when needed
 - **Package manager**: Use yarn, not npm
 - **Code style**: ESLint configured with TypeScript, React, and import rules
+
+## Development Workflow
+
+- **Update changelog**: After completing any work iteration (feature, bug fix, refactor), update `CHANGELOG.md` with the changes made
+  - Format: Follow Keep a Changelog format (https://keepachangelog.com/)
+  - Categorize changes under: Added, Changed, Deprecated, Removed, Fixed, Security
+  - Group changes by version number
+  - Include [Unreleased] section for changes not yet released
 
 ## Configuration
 

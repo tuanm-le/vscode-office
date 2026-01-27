@@ -1,14 +1,14 @@
-import { adjustImgPath } from "@/common/fileUtil";
-import { Output } from "@/common/Output";
 import { spawn } from 'child_process';
-import chromeFinder from 'chrome-finder';
-import { fileTypeFromFile } from 'file-type';
 import { copyFileSync, existsSync, lstatSync, mkdirSync, renameSync } from 'fs';
 import { homedir } from 'os';
 import path, { dirname, extname, isAbsolute, join, parse } from 'path';
+import { fileTypeFromFile } from 'file-type';
+import chromeFinder from 'chrome-finder';
 import * as vscode from 'vscode';
 import { Holder } from './markdown/holder';
 import { convertMd } from "./markdown/markdown-pdf";
+import { Output } from "@/common/Output";
+import { adjustImgPath } from "@/common/fileUtil";
 import { Global } from "@/common/global";
 
 export type ExportType = 'pdf' | 'html' | 'docx';

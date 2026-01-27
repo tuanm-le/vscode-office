@@ -1,6 +1,6 @@
-import { handler } from "../../util/vscode";
 import * as XLSX from 'xlsx/dist/xlsx.mini.min.js';
 import Spreadsheet from "x-data-spreadsheet";
+import { handler } from "../../util/vscode";
 
 function dataToSheet(xws) {
     var aoa = [[]];
@@ -9,7 +9,7 @@ function dataToSheet(xws) {
         var row = rowobj[ri];
         if (!row) continue;
         aoa[ri] = [];
-        /* eslint-disable no-loop-func */
+         
         Object.keys(row.cells).forEach(function (k) {
             var idx = +k;
             if (isNaN(idx)) return;

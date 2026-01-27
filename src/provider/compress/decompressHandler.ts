@@ -1,9 +1,9 @@
-import { Handler } from "@/common/handler";
 import { exec } from "child_process";
 import { existsSync, rm } from "fs";
 import { platform, tmpdir } from "os";
 import { resolve } from "path";
 import { Uri, commands } from "vscode";
+import { Handler } from "@/common/handler";
 
 export function handlerCommonDecompress(uri: Uri, handler: Handler) {
     const decompressPath = `${tmpdir()}/officeViewer-decompress-${new Date().getTime()}`;

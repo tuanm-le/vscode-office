@@ -1,7 +1,7 @@
+import { cssPrefix } from '../config';
 import Dropdown from './dropdown';
 import { h } from './element';
 import Icon from './icon';
-import { cssPrefix } from '../config';
 
 const lineTypes = [
   ['thin', '<svg xmlns="http://www.w3.org/2000/svg" width="50" height="1" style="user-select: none;"><line x1="0" y1="0.5" x2="50" y2="0.5" stroke-width="1" stroke="black" style="user-select: none;"></line></svg>'],

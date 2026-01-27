@@ -1,11 +1,11 @@
-import { Output } from "@/common/Output";
-import { Handler } from "@/common/handler";
-import prettyBytes from "@/service/zip/pretty-bytes";
 import { mkdirSync, writeFileSync } from "fs";
-import { createExtractorFromData } from "node-unrar-js";
 import { basename, join, parse, resolve } from "path";
+import { createExtractorFromData } from "node-unrar-js";
 import { Uri, commands, window, workspace } from "vscode";
 import { handlerCommonDecompress } from "./decompressHandler";
+import prettyBytes from "@/service/zip/pretty-bytes";
+import { Handler } from "@/common/handler";
+import { Output } from "@/common/Output";
 
 interface FileInfo {
     name: string;

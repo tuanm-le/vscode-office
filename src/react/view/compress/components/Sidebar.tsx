@@ -37,7 +37,7 @@ export default function Sidebar({ name = '', items, currentDir, OnClickFolder })
       key: rootKey.current,
       children: loop(items)
     }]
-  }, [name, currentDir, items]);
+  }, [name, currentDir, items, OnClickFolder]);
 
   return (
     <div>

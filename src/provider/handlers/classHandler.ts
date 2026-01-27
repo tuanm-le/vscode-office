@@ -1,9 +1,9 @@
-import { Output } from '@/common/Output';
 import { spawn } from 'child_process';
 import { existsSync, mkdirSync } from 'fs';
 import { tmpdir } from 'os';
 import { parse } from 'path';
 import * as vscode from 'vscode';
+import { Output } from '@/common/Output';
 
 export function handleClass(uri: vscode.Uri, panel: vscode.WebviewPanel) {
     const tempPath = `${tmpdir()}/office_temp_java`

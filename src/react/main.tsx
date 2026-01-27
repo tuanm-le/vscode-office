@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom/client';
-import './util/vscode.js';
-import { getConfigs } from './util/vscodeConfig.ts';
-import './main.css'
-import { ConfigProvider } from 'antd';
 import { lazy } from 'react';
+import { ConfigProvider } from 'antd';
+import './util/vscode.js';
+import './main.css';
+import { getConfigs } from './util/vscodeConfig.ts';
 import { antThemeConfig } from './antThemeConfig.ts';
 const Zip = lazy(() => import('./view/compress/Zip.tsx'))
 const Excel = lazy(() => import('./view/excel/Excel.tsx'))

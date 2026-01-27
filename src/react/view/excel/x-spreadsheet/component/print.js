@@ -1,10 +1,10 @@
 /* global window document */
-import { h } from './element';
 import { cssPrefix } from '../config';
-import Button from './button';
 import { Draw } from '../canvas/draw';
-import { renderCell } from './table';
 import { t } from '../locale/locale';
+import { h } from './element';
+import Button from './button';
+import { renderCell } from './table';
 
 // resolution: 72 => 595 x 842
 // 150 => 1240 x 1754

@@ -1,8 +1,8 @@
 /* global document */
 /* global window */
+import { cssPrefix } from '../config';
 import { h } from './element';
 import Icon from './icon';
-import { cssPrefix } from '../config';
 import { bind, unbind } from './event';
 
 export default class Modal {

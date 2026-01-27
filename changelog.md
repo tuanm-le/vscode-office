@@ -1,5 +1,22 @@
 # Change log
 
+# Unreleased
+
+- Upgrade Mermaid to v11.12.2 with custom markdown-it plugin for compatibility
+- Update Vditor CDN to v3.11.2
+- Add CLAUDE.md documentation for project guidance
+- Migrate to ESLint 9.x with flat config format (eslint.config.js)
+- Upgrade TypeScript ESLint to v8.54.0 for ESLint 9 compatibility
+- Upgrade all ESLint plugins to latest versions (eslint-plugin-react@7.37.5, eslint-plugin-react-hooks@7.0.1, eslint-plugin-react-refresh@0.4.26, eslint-plugin-import@2.32.0, eslint-plugin-unused-imports@4.3.0)
+- Add TypeScript as a dev dependency
+- Consolidate two ESLint configs (.eslintrc.js and .eslintrc_react.cjs) into single eslint.config.js
+- Add lint script to package.json for better linting workflow
+- Fix React hooks dependency warnings in Sidebar and FontViewer components
+- Fix import ordering in React components
+- Upgrade dependencies: esbuild to v0.27.2, vite to v7.3.1, antd to v6.2.2, puppeteer-core to v24.36.0, axios to v1.7.4
+- Improve build configuration using esbuild context API for watch mode
+- Add error handling for puppeteer browser launch
+
 # 3.5.6 2026-1-13
 - Add QMD and Typst support.
 
