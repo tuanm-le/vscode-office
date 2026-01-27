@@ -1,5 +1,20 @@
 import { openLink, hotKeys, imageParser, getToolbar, autoSymbol, onToolbarClick, createContextMenu, scrollEditor } from "./util.js";
 
+// Pre-load Mermaid v11 before Vditor initializes to override the bundled v8.8.0
+function loadMermaid() {
+  return new Promise((resolve, reject) => {
+    if (window.mermaid) {
+      resolve();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js';
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
 let state;
 function loadConfigs() {
   const elem = document.getElementById('configs')
@@ -15,6 +30,8 @@ function loadConfigs() {
 loadConfigs()
 
 handler.on("open", async (md) => {
+  // Load Mermaid v11 before Vditor initializes
+  await loadMermaid().catch(err => console.warn('Failed to load Mermaid v11:', err));
   const { config, language } = md;
   addAutoTheme(md.rootPath, config.editorTheme)
   handler.on('theme', theme => {
@@ -23,7 +40,7 @@ handler.on("open", async (md) => {
   const editor = new Vditor('vditor', {
     value: md.content,
     _lutePath: md.rootPath + '/lute.min.js',
-    cdn: 'https://unpkg.com/vscode-vditor@3.8.19',
+    cdn: 'https://unpkg.com/vditor@3.11.2',
     height: document.documentElement.clientHeight,
     outline: {
       enable: config.openOutline,
@@ -46,6 +63,9 @@ handler.on("open", async (md) => {
       markdown: {
         toc: true,
         codeBlockPreview: config.previewCode,
+      },
+      mermaid: {
+        cdn: 'https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/'
       },
       hljs: {
         style: config.previewCodeHighlight.style,
