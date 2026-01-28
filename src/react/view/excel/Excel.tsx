@@ -1,10 +1,10 @@
 import { message, Spin } from "antd";
 import { useEffect, useRef, useState } from "react";
-import { handler } from "../../util/vscode.ts";
+import { handler } from "../../util/vscode";
 import VSCodeLogo from "../vscode.tsx";
 import './Excel.less';
-import { loadSheets } from "./excel_reader.ts";
-import { export_xlsx } from "./excel_writer.ts";
+import { loadSheets } from "./excel_reader";
+import { export_xlsx } from "./excel_writer";
 import Spreadsheet from './x-spreadsheet/index';
 
 export default function Excel() {

@@ -1,17 +1,15 @@
 import { openLink, hotKeys, imageParser, getToolbar, autoSymbol, onToolbarClick, createContextMenu, scrollEditor } from "./util.js";
 
-// Pre-load Mermaid v11 before Vditor initializes to override the bundled v8.8.0
+// Pre-load Mermaid v11.12.2 before Vditor initializes
 function loadMermaid() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
+    // Don't pre-load - let Vditor handle it via the cdn config
+    // Just check if it's already loaded for logging
     if (window.mermaid) {
-      resolve();
-      return;
+      const version = window.mermaid.version || window.mermaid.defaultVersion || 'unknown';
+      console.log('Mermaid already loaded, version:', version);
     }
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js';
-    script.onload = resolve;
-    script.onerror = reject;
-    document.head.appendChild(script);
+    resolve();
   });
 }
 
@@ -32,6 +30,20 @@ loadConfigs()
 handler.on("open", async (md) => {
   // Load Mermaid v11 before Vditor initializes
   await loadMermaid().catch(err => console.warn('Failed to load Mermaid v11:', err));
+
+  // Initialize Mermaid with error handling
+  if (window.mermaid) {
+    try {
+      window.mermaid.initialize({
+        startOnLoad: false,
+        theme: 'default',
+        logLevel: 'error', // Only show errors, not warnings
+        suppressErrorRendering: false // Allow error rendering in the UI
+      });
+    } catch (err) {
+      console.warn('Mermaid initialization warning:', err);
+    }
+  }
   const { config, language } = md;
   addAutoTheme(md.rootPath, config.editorTheme)
   handler.on('theme', theme => {
@@ -65,7 +77,7 @@ handler.on("open", async (md) => {
         codeBlockPreview: config.previewCode,
       },
       mermaid: {
-        cdn: 'https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/'
+        cdn: 'https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js'
       },
       hljs: {
         style: config.previewCodeHighlight.style,

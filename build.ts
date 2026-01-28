@@ -56,9 +56,8 @@ function main() {
 
     // Use context for watch mode, build for one-time build
     if (!isProd) {
-        context({
-            ...buildOptions,
-            watch: true,
+        context(buildOptions).then(ctx => {
+            ctx.watch()
         })
     } else {
         build(buildOptions)

@@ -63,9 +63,21 @@ Specific file operations are handled by classes in `src/provider/handlers/` and 
 - `src/extension.ts` - Extension activation, provider registration, command registration
 - `src/provider/` - Custom editor providers
 - `src/react/` - React components for webview UIs
-- `resource/vditor/` - Bundled Vditor markdown editor
+- `resource/vditor/` - Bundled Vditor markdown editor with custom toolbar icons
+- `resource/vditor/icon/` - Custom toolbar icons for VS Code integration (vscode.svg, codicon-files.svg, pdf.svg, theme.svg)
 - `resource/pdf/` - PDF.js resources
 - `resource/java-decompiler.jar` - Java decompiler
+
+## Vditor Customization
+
+The extension uses a customized version of Vditor (v3.11.2) with custom toolbar icons for VS Code integration. These icons are located in `resource/vditor/icon/`:
+
+- **vscode.svg** - "Edit in VSCode" toolbar button
+- **codicon-files.svg** - "Quick Open" toolbar button
+- **pdf.svg** - "Export PDF" toolbar button
+- **theme.svg** - "Theme Switcher" toolbar button
+
+**Important**: When upgrading Vditor, preserve these custom icons. See `resource/vditor/icon/README.md` for detailed documentation.
 
 ## QMD (Quarto Markdown) Support
 
@@ -97,6 +109,7 @@ The extension includes enhanced support for Quarto Markdown files (.qmd). See `Q
   - Categorize changes under: Added, Changed, Deprecated, Removed, Fixed, Security
   - Group changes by version number
   - Include [Unreleased] section for changes not yet released
+  - Example: See the Vditor v3.11.2 upgrade entry in CHANGELOG.md for a well-documented change
 
 ## Configuration
 
